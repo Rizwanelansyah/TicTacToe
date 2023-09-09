@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+  </head>
+  <style>
+    *{
+      text-align: center;
+    }
+    .box{
+      border: 3px solid black;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      margin: 2px;
+    }
+    .title{
+      padding: 5px;
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 50px;
+    }
+    .container{
+      padding: 5px;
+      border: 2px solid black;
+    }
+    .red{
+      background-color: red;
+    }
+    .blue{
+      background-color: blue;
+    }
+    #outPut{
+      font-weight: bold;
+      font-size: 50px;
+    }
+  </style>
+  <body>
+    <div class="title">RED TURN</div>
+    <div class="container">
+    <div class="box" id="c1"></div>
+    <div class="box" id="c2"></div>
+    <div class="box" id="c3"></div><br>
+    <div class="box" id="c4"></div>
+    <div class="box" id="c5"></div>
+    <div class="box" id="c6"></div><br>
+    <div class="box" id="c7"></div>
+    <div class="box" id="c8"></div>
+    <div class="box" id="c9"></div><br>
+    </div>
+    <div class="container">
+      <h1 id="outPut"></h1>
+    </div>
+    
+    <footer>
+      Web created by RizwanElansyah
+    </footer>
+    
+    <script>
+      alert('This web was created by Rizwan Elansyah')
+      let btnSound = new Audio('btn.mp3');
+      let winSound = new Audio('win.mp3');
+      let drawSound = new Audio('draw.wav');
+      const turn = document.querySelector('.title');
+      const con = document.querySelector('.container');
+      const boxes = document.querySelectorAll('.box');
+      const out = document.querySelector('#outPut');
+      let end = false;
+      let red = false;
+      con.addEventListener('click',function(e){
+        if(e.target.className == "box"){
+          if(end){}else{
+            if(red){
+              e.target.classList.add('blue');
+              btnSound.play();
+              red = false;
+            }else{
+              e.target.classList.add('red');
+              btnSound.play();
+              red = true;
+            }
+          }
+          if(red){
+            turn.innerHTML = "BLUE TURN";
+          }else{
+            turn.innerHTML = "RED TURN";
+          }
+          if(boxes[0].classList.contains('red') && boxes[1].classList.contains('red') && boxes[2].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[3].classList.contains('red') && boxes[4].classList.contains('red') && boxes[5].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[6].classList.contains('red') && boxes[7].classList.contains('red') && boxes[8].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[0].classList.contains('red') && boxes[3].classList.contains('red') && boxes[6].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[1].classList.contains('red') && boxes[4].classList.contains('red') && boxes[7].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[2].classList.contains('red') && boxes[5].classList.contains('red') && boxes[8].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[0].classList.contains('red') && boxes[4].classList.contains('red') && boxes[8].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[2].classList.contains('red') && boxes[4].classList.contains('red') && boxes[6].classList.contains('red')){
+            end = true;
+            out.innerHTML = "RED WIN!!!";
+            winSound.play();
+          }else if(boxes[0].classList.contains('blue') && boxes[1].classList.contains('blue') && boxes[2].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[3].classList.contains('blue') && boxes[4].classList.contains('blue') && boxes[5].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[6].classList.contains('blue') && boxes[7].classList.contains('blue') && boxes[8].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[0].classList.contains('blue') && boxes[3].classList.contains('blue') && boxes[6].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[1].classList.contains('blue') && boxes[4].classList.contains('blue') && boxes[7].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[2].classList.contains('blue') && boxes[5].classList.contains('blue') && boxes[8].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[0].classList.contains('blue') && boxes[4].classList.contains('blue') && boxes[8].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[2].classList.contains('blue') && boxes[4].classList.contains('blue') && boxes[6].classList.contains('blue')){
+            end = true;
+            out.innerHTML = "BLUE WIN!!!";
+            winSound.play();
+          }else if(boxes[0].className != "box" && boxes[1].className != "box" && boxes[2].className != "box" && boxes[3].className != "box" && boxes[4].className != "box" && boxes[5].className != "box" && boxes[6].className != "box" && boxes[7].className != "box" && boxes[8].className != "box"){
+            out.innerHTML = "DRAWW!!!";
+            end = true ;
+            drawSound.play();
+          }
+        }
+      }); 
+      
+    </script>
+  </body>
+</html>
